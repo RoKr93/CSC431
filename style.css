@@ -1,13 +1,18 @@
 #mapid {
     height: 500px;
     align-content: center;
+    margin: 50px;
 }
 
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    font-weight: 300;
 }
 
 h1 {
     text-align: center;
+}
+
+table {
+	height: 300px;
 }

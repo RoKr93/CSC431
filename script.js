@@ -2,6 +2,7 @@ var mymap; // reference to the map
 
 window.onload = function(){
     createMap();
+    sceneStart();
 }
 
 function createMap() {
@@ -13,4 +14,11 @@ function createMap() {
         id: 'rkrishnan.phlglkll',
         accessToken: 'pk.eyJ1IjoicmtyaXNobmFuIiwiYSI6ImNpbWRsZDhwZzAwNmp1Zmx2ZzNvMHJ0dnoifQ.nShFyoLBiyO40eqmQRubVg'
     }).addTo(mymap);
+}
+
+function sceneStart() {
+	$(".collapse").collapse()({
+  		toggle: false,
+  		show: false
+  	});
 }

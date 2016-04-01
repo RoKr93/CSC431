@@ -1,13 +1,305 @@
 <html>
-    <head>
-        <title>INSAR Job Initiation Tool</title>
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-        <link rel="stylesheet" href="style.css" />
-        <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <h1>INSAR Job Initiation Tool</h1>
-        <div id="mapid"></div>
-    </body>
+<head>
+  <title>INSAR Job Initiation Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">INSAR Job Initiation Tool</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Page 1</a></li>
+          <li><a href="#">Page 2</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Map -->
+  <div class="map">
+    <div id="mapid"></div>
+  </div>
+
+  <!-- Scenes -->
+  <div id="scenes">
+    <div class="container-fluid">
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#collapse1">Scenes</a>
+            </h4>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse">
+            <div class="btn-group btn-group-justified">
+              <div class="table-responsive">          
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Collection
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Platform
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Absolute Orbit
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Start Time
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Stop Time
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Relative Orbit
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">First Frame
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Final Frame
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Beam Mode
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Swath
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">flight Direction
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Polorization
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Level
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Stack Size
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                      <th>
+                        <div class="btn-group dropdown-toggle">
+                            <button type="button" class="btn btn-info" data-toggle="dropdown">Data File
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Sort Acending</a></li>
+                              <li><a href="#">Sort Decending</a></li>
+                              <li><a href="#">Columns</a></li>
+                              <li><a href="#">Group By This Field</a></li>
+                              <li><a href="#">Show In Groups</a></li>
+                            </ul>
+                          </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>I</td>
+                      <td>Am</td>
+                      <td>A</td>
+                      <td>Genius</td>
+                      <td>~</td>
+                      <td>Brian</td>
+                      <td>Castles</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
