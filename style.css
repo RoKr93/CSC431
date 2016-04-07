@@ -1,10 +1,11 @@
 #mapid {
     height: 500px;
     align-content: center;
+    margin: 50px;
 }
 
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    font-weight: 300;
 }
 
@@ -12,6 +13,11 @@ h1 {
     text-align: center;
 }
 
+<<<<<<< HEAD
 #query {
 	height:500px;
+=======
+table {
+	height: 300px;
+>>>>>>> 0813018c3f510f6553e692cd10bc533003966941
 }
