@@ -1,13 +1,24 @@
 <html>
     <head>
         <title>INSAR Job Initiation Tool</title>
+        <!-- CSS -->
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
         <link rel="stylesheet" href="style.css" />
-        <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-datepicker.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/bootstrap-datepicker.min.css" />
+
+        <!-- Leaflet -->
         <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-        <script src="script.js"></script>
+        
+        <!-- our script -->
+        <script src="js/script.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -136,10 +147,10 @@
                                             <div class="form-group">
                                                 <label for="radio" class="col-xs-5">Flight Direction: </label>
                                                 <label class="radio-inline col-xs-3">
-                                                  <input type="radio" name="optFlight">A
+                                                  <input type="radio" name="optFlight" value="A">A
                                                 </label>
                                                 <label class="radio-inline col-xs-3">
-                                                  <input type="radio" name="optFlight">D
+                                                  <input type="radio" name="optFlight" value="D">D
                                                 </label>
                                             </div>
                                         </form>
@@ -149,10 +160,10 @@
                                             <div class="form-group">
                                                 <label for="radio" class="col-xs-5">Look Direction: </label>
                                                 <label class="radio-inline col-xs-3">
-                                                  <input type="radio" name="optLook">L
+                                                  <input type="radio" name="optLook" value="L">L
                                                 </label>
                                                 <label class="radio-inline col-xs-3">
-                                                  <input type="radio" name="optLook">R
+                                                  <input type="radio" name="optLook" value="R">R
                                                 </label>
                                             </div>
                                         </form>
@@ -287,7 +298,7 @@
                                             </div>    
                                         </form>
                                     </li>
-                                    <li id="search"><button class="btn">Search</button></li>
+                                    <li id="search"><button id="searchButton" class="btn">Search</button></li>
                                 </ul>
                                 <script>
     $(document).ready(function() {
@@ -555,7 +566,5 @@
     </div>
   </div>
         </div>  
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
