@@ -86,6 +86,7 @@ function doUnavcoRequest() {
     searchParams["minBaselinePerp"] = $("#inputMinBaseline").val();
     searchParams["maxInsarStackSize"] = $("#inputMaxStackSize").val();
     searchParams["minInsarStackSize"] = $("#inputMinStackSize").val();
+    searchParams["intersectsWith"] = $("#inputIntersects").val();
     
     // append all of the existing search parameters to the request URL
     for(var key in searchParams) {
@@ -106,7 +107,8 @@ function doUnavcoRequest() {
     
     function successCallback(data) {
         // TODO: actually handle success
-        console.log("success!");
+        //console.log(JSON.stringify(data, null, 2));
+        populateTable(data);
     }
     
     function errorCallback() {
@@ -124,4 +126,30 @@ function doUnavcoRequest() {
         success: successCallback,
         type: 'GET'
     });
+}
+
+function populateTable(data) {
+    var results = data.resultList;
+    var length = data.count;
+    var html = "";
+    for(var i = 0; i < length; i++) {
+        html += "<tr>";
+        html += "<td>" + results[i].collectionName + "</td>";
+        html += "<td>" + results[i].platform + "</td>";
+        html += "<td>" + results[i].absoluteOrbit + "</td>";
+        html += "<td>" + results[i].startTime + "</td>";
+        html += "<td>" + results[i].stopTime + "</td>";
+        html += "<td>" + results[i].relativeOrbit + "</td>";
+        html += "<td>" + results[i].firstFrame + "</td>";
+        html += "<td>" + results[i].finalFrame + "</td>";
+        html += "<td>" + results[i].beamMode + "</td>";
+        html += "<td>" + results[i].beamSwath + "</td>";
+        html += "<td>" + results[i].flightDirection + "</td>";
+        html += "<td>" + results[i].polarization + "</td>";
+        html += "<td>" + results[i].processingLevel + "</td>";
+        html += "<td>" + results[i].insarStackSize + "</td>";
+        html += "<td>" + results[i].fileName + "</td>";
+        html += "</tr>";
+    }
+    $(".table > tbody").append(html);
 }
