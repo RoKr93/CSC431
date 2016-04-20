@@ -14,6 +14,58 @@ function createMap() {
         id: 'rkrishnan.phlglkll',
         accessToken: 'pk.eyJ1IjoicmtyaXNobmFuIiwiYSI6ImNpbWRsZDhwZzAwNmp1Zmx2ZzNvMHJ0dnoifQ.nShFyoLBiyO40eqmQRubVg'
     }).addTo(mymap);
+    
+    function populateIntersects(type, points) {
+        var resultString = '';
+        if(type === 'polygon') {
+            resultString += 'POLYGON ((';
+            for(var i = 0; i < points.length; i++){
+                resultString += points[i].lat + ' ' + points[i].lng;
+                if(i < points.length - 1)
+                    resultString += ',';
+            }
+            resultString += '))';
+            $("#inputIntersects").val(resultString);
+        }
+    }
+    
+    var drawnItems = new L.FeatureGroup();
+    mymap.addLayer(drawnItems);
+
+    var drawControlFull = new L.Control.Draw({
+        edit: {
+            featureGroup: drawnItems
+        },
+        draw: {
+            polyline: false
+        }
+    });
+
+
+    var drawControlEditOnly = new L.Control.Draw({
+        edit: {
+            featureGroup: drawnItems
+        },
+        draw: false
+    });
+
+    mymap.addControl(drawControlFull);
+
+    mymap.on("draw:created", function (e) {
+        var layer = e.layer;
+        var type = e.layerType;
+        var points = layer._latlngs;
+        populateIntersects(type, points);
+        layer.addTo(drawnItems);
+        drawControlFull.removeFrom(mymap);
+        drawControlEditOnly.addTo(mymap)
+    });
+
+    mymap.on("draw:deleted", function(e) {
+        drawControlEditOnly.removeFrom(mymap);
+        drawControlFull.addTo(mymap);
+        $("#inputIntersects").val('');
+    });
 }
 
 function sceneStart() {
